@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using LettingAgent.Models;
 
 namespace LettingAgent.Data
 {
@@ -12,5 +13,7 @@ namespace LettingAgent.Data
             : base(options)
         {
         }
+
+        public DbSet<Property> Property { get; set; }
     }
 }
