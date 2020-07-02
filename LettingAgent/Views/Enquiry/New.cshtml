@@ -1,0 +1,45 @@
+﻿@model LettingAgent.Models.Enquiry
+
+@{
+    ViewData["Title"] = "Property Enquiry";
+}
+
+<h1>Index</h1>
+
+<h4>Enquiry</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="Enquiry" asp-action="Index" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <div class="col-md">
+                    <div class="card" style="width: 100%">
+                        <img src="@ViewBag.Property.PictureUrl" class="card-img-top" alt="Property image" />
+                        <div class="card-body">
+                            <h5 class="card-title">@ViewBag.Property.Address1)</h5>
+                            <p class="card-text">@ViewBag.Property.ShortDescription)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input asp-for="PropertyId" type="hidden" value="@ViewBag.Property.Id" />
+                <label asp-for="EnquiryText" class="control-label"></label>
+                <input asp-for="EnquiryText" class="form-control" />
+                <span asp-validation-for="EnquiryText" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -15,5 +15,6 @@ namespace LettingAgent.Data
         }
 
         public DbSet<Property> Property { get; set; }
+        public DbSet<Enquiry> Enquiry { get; set; }
     }
 }

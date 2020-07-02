@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LettingAgent.Data;
 using LettingAgent.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace LettingAgent.Controllers
 {
@@ -14,7 +15,7 @@ namespace LettingAgent.Controllers
     {
         private readonly ApplicationDbContext _context;
 
-        public PropertiesController(ApplicationDbContext context)
+        public PropertiesController(ApplicationDbContext context, UserManager<IdentityUser> userManager)
         {
             _context = context;
         }
